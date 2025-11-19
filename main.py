@@ -8,19 +8,20 @@ def main():
     while loop == True: #Game loop
         print("Guess the number between 1 and 100")
         guess = input() #User entered guess
+        intguess = int(guess)
 
-        if guess > 100 or guess < 1: #Check to see if number entered is outside of number range.
+        if intguess > 100 or intguess < 1: #Check to see if number entered is outside of number range.
             print("Your guess is outside the number limits")
-            guess = input()
+            intguess = input()
         else:
-            if guess == random_number:
+            if intguess == random_number:
                 print("Congratulations! You guessed the number")
                 loop = False
                 exit
 
-            elif guess > random_number:
+            elif intguess > random_number:
                 print("Too high!")
-            elif guess < random_number:
+            elif intguess < random_number:
                 print("Too low!")
             
 if __name__ == "__main__":
