@@ -3,14 +3,20 @@ import random
 def main():
 
     loop = True #Initialised game loop
-    random_number = random.randint(1, 100) #Random Number to guess
+    
+    print("What is the minimum number you would like to guess?")
+    a = int(input())
+    print("What is the maximum number you would like to guess?")
+    b = int(input())
+
+    random_number = random.randint(a, b) #Random Number to guess
 
     while loop == True: #Game loop
-        print("Guess the number between 1 and 100")
+        print(f"Guess the number between {a} and {b}")
         guess = input() #User entered guess
         intguess = int(guess)
 
-        if intguess > 100 or intguess < 1: #Check to see if number entered is outside of number range.
+        if intguess > b or intguess < a: #Check to see if number entered is outside of number range.
             print("Your guess is outside the number limits")
             intguess = input()
         else:
