@@ -10,6 +10,7 @@ def main():
     b = int(input())
 
     num_of_guesses = 0
+    high_score = 0
 
     random_number = random.randint(a, b) #Random Number to guess
 
@@ -24,10 +25,18 @@ def main():
         else:
             if intguess == random_number:
                 print("Congratulations! You guessed the number")
-                loop = False
                 num_of_guesses += 1
                 print(f"You guessed {num_of_guesses} times")
-                exit
+                print("Do you want to play again?")
+                answer = input().lower() #accept the answer regardless of case. Converted to lower case.
+                if answer == "y":
+                    if num_of_guesses < high_score: #check the high_score has been beaten.
+                        high_score = num_of_guesses # if beaten then set the new high score.
+                        print(f"You set a new highscore of {high_score}")
+                    loop = True #Keeps the loop going if choosing to play more.
+                else:    
+                    loop = False #Ends the loop
+                    exit #Exits the program.
 
             elif intguess > random_number:
                 print("Too high!")
