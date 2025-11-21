@@ -9,6 +9,8 @@ def main():
     print("What is the maximum number you would like to guess?")
     b = int(input())
 
+    num_of_guesses = 0
+
     random_number = random.randint(a, b) #Random Number to guess
 
     while loop == True: #Game loop
@@ -23,12 +25,16 @@ def main():
             if intguess == random_number:
                 print("Congratulations! You guessed the number")
                 loop = False
+                num_of_guesses += 1
+                print(f"You guessed {num_of_guesses} times")
                 exit
 
             elif intguess > random_number:
                 print("Too high!")
+                num_of_guesses += 1
             elif intguess < random_number:
                 print("Too low!")
+                num_of_guesses += 1
             
 if __name__ == "__main__":
     main()
